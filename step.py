@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) 
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY3")  
 genai.configure(api_key=GEMINI_API_KEY)
 
 def get_short_tips(query):

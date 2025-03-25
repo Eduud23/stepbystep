@@ -6,8 +6,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) 
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY3")  
-genai.configure(api_key=GEMINI_API_KEY3)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  
+genai.configure(api_key=GEMINI_API_KEY)
 
 def get_instructions(query):
     model = genai.GenerativeModel("gemini-1.5-pro")

@@ -12,7 +12,14 @@ genai.configure(api_key=GEMINI_API_KEY)
 def get_short_tips(query):
     model = genai.GenerativeModel("gemini-1.5-pro")
     response = model.generate_content(f"Give short tips or a concise tutorial for: {query}")
-    return response.text if response else "Sorry, I couldn't generate tips or tutorials."
+    
+    if response:
+        # Limit to 450 words
+        words = response.text.split()[:450]  
+        limited_response = ' '.join(words)
+        return limited_response
+    else:
+        return "Sorry, I couldn't generate tips or tutorials."
 
 @app.route("/predict", methods=["GET"])
 def predict():

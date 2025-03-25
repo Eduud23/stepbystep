@@ -13,7 +13,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 # Define the function to get step-by-step instructions
 def get_instructions(query):
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-1.5-pro")
     response = model.generate_content(f"Give step-by-step instructions for: {query}")
     return response.text if response else "Sorry, I couldn't generate instructions."
 

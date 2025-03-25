@@ -9,10 +9,10 @@ CORS(app)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  
 genai.configure(api_key=GEMINI_API_KEY)
 
-def get_instructions(query):
+def get_short_tips(query):
     model = genai.GenerativeModel("gemini-1.5-pro")
-    response = model.generate_content(f"Give step-by-step instructions for: {query}")
-    return response.text if response else "Sorry, I couldn't generate instructions."
+    response = model.generate_content(f"Give short tips or a concise tutorial for: {query}")
+    return response.text if response else "Sorry, I couldn't generate tips or tutorials."
 
 @app.route("/predict", methods=["GET"])
 def predict():
@@ -21,9 +21,8 @@ def predict():
     if not query:
         return jsonify({"error": "No query provided"}), 400
     
-    instructions = get_instructions(query)
-    return jsonify({"instructions": instructions})
+    tips = get_short_tips(query)
+    return jsonify({"tips": tips})
 
-# Run Flask app (for local testing)
 if __name__ == "__main__":
     app.run(debug=True)

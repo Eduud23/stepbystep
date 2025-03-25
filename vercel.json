@@ -1,14 +1,15 @@
 {
+    "version": 2,
     "builds": [
       {
-        "src": "step.py",
+        "src": "step.py", 
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/predict",
-        "dest": "step.py"
+        "dest": "step.py"  
       }
     ]
   }

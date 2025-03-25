@@ -3,15 +3,12 @@ import google.generativeai as genai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app) 
 
-# Set up Gemini API key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY3")  # Set this in your Vercel environment variables
-genai.configure(api_key=GEMINI_API_KEY)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY3")  
+genai.configure(api_key=GEMINI_API_KEY3)
 
-# Define the function to get step-by-step instructions
 def get_instructions(query):
     model = genai.GenerativeModel("gemini-1.5-pro")
     response = model.generate_content(f"Give step-by-step instructions for: {query}")

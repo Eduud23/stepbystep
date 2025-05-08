@@ -10,7 +10,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY3")
 genai.configure(api_key=GEMINI_API_KEY)
 
 def get_short_tips(query):
-    model = genai.GenerativeModel("gemini-1.5-pro")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content(f"Give short tips or a concise tutorial for: {query}")
     
     if response:
